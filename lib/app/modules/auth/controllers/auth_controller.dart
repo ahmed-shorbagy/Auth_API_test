@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 
 class AuthController extends GetxController {
   final ApiService _apiService = ApiService();
-
   var isLoading = false.obs;
   var errorMessage = ''.obs;
 
@@ -23,20 +22,17 @@ class AuthController extends GetxController {
 
     result.fold(
       (failure) {
-        log("aadsasddfsfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         log("Login failed");
         log(failure.errMessage);
         errorMessage.value = failure.errMessage;
       },
       (user) async {
-        log("Login successful");
         final token = user.token;
         await UserService.instance.saveUser(user, token!);
         errorMessage.value = '';
         Get.offAllNamed(Routes.HOME);
       },
     );
-
     isLoading.value = false;
   }
 }

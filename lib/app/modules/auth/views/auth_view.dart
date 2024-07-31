@@ -1,5 +1,3 @@
-import 'package:auth_api/app/data/providers/api_service.dart';
-import 'package:auth_api/app/data/providers/base_api_service.dart';
 import 'package:auth_api/app/modules/auth/views/widgets/login_form.dart';
 import 'package:auth_api/core/utils/app_colors.dart';
 import 'package:auth_api/core/utils/app_images.dart';

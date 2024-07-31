@@ -18,16 +18,14 @@ class ApiService extends BaseApiService {
         {'email': email, 'password': password},
       );
 
-      log('Response status: ${response.statusCode}');
-      log('Response body: ${response.body}');
-
       if (response.statusCode == 200 || response.statusCode == 201) {
-        log('Successful login');
-        final user = UserModel.fromMap(response
-            .body); // Ensure the response is correctly passed to fromJson
+        log(response.body.toString());
+        final user = UserModel.fromMap(response.body);
         return right(user);
       } else {
-        log('Login failed');
+        log(response.body.toString());
+        log(response.statusCode.toString());
+        log(response.body['message']);
         return left(
           ServerFailure.fromResponse(response.statusCode!, response.body),
         );

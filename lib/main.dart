@@ -1,4 +1,3 @@
-import 'package:auth_api/app/data/providers/base_api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
