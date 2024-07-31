@@ -12,11 +12,25 @@ class SplashView extends GetView<SplashController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(Assets.imagesbackground), fit: BoxFit.cover),
-        ),
-      ),
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(Assets.imagesbackground), fit: BoxFit.cover),
+          ),
+          child: AnimatedBuilder(
+            animation: controller.slidingAnimation,
+            builder: (context, _) {
+              return SlideTransition(
+                position: controller.slidingAnimation,
+                child: Center(
+                  child: SvgPicture.asset(
+                    Assets.imagesSplshIcon,
+                  ),
+                ),
+              );
+            },
+          )),
     );
   }
 }
