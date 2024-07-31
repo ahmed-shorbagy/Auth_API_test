@@ -1,3 +1,5 @@
+import 'package:auth_api/app/data/providers/api_service.dart';
+import 'package:auth_api/app/data/providers/base_api_service.dart';
 import 'package:auth_api/app/modules/auth/views/widgets/login_form.dart';
 import 'package:auth_api/core/utils/app_colors.dart';
 import 'package:auth_api/core/utils/app_images.dart';
@@ -10,6 +12,7 @@ import '../controllers/auth_controller.dart';
 
 class AuthView extends GetView<AuthController> {
   const AuthView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

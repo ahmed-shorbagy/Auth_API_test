@@ -1,23 +1,18 @@
+import 'package:auth_api/app/data/models/user_model/user_model.dart';
+import 'package:auth_api/app/modules/auth/controllers/user_service.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final UserService userService = UserService.instance;
+  UserModel user = Get.find<UserService>().user.value!;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    loadUser();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void loadUser() async {
+    await userService.loadUser();
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

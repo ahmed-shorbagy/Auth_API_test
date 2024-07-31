@@ -9,18 +9,20 @@ class CustomTextFeild extends StatelessWidget {
     this.prefixicon,
     this.isobsecure,
     required this.fillColor,
+    required this.controller,
   });
   final String hintText;
   final Widget? suffixicon, prefixicon;
   final bool? isobsecure;
   final Color fillColor;
-
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         TextFormField(
+            controller: controller,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'This field is required';
