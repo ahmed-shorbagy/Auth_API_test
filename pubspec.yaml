@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   get: 4.6.6
 
@@ -21,6 +22,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+
+
+  fonts:
+    - family: Roboto     
+      fonts:
+        - asset: assets/images/fonts/Roboto-Regular.ttf
 
 flutter_assets:
   assets_path: assets/images/

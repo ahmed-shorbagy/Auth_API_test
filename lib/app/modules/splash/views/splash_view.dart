@@ -16,7 +16,7 @@ class SplashView extends GetView<SplashController> {
           height: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(Assets.imagesbackground), fit: BoxFit.cover),
+                image: AssetImage(Assets.imagesBackGround), fit: BoxFit.cover),
           ),
           child: AnimatedBuilder(
             animation: controller.slidingAnimation,
