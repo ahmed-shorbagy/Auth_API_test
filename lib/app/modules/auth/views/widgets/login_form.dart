@@ -5,13 +5,12 @@ import 'package:auth_api/app/modules/auth/views/widgets/custom_text_feild.dart';
 import 'package:auth_api/app/modules/auth/views/widgets/custome_button.dart';
 import 'package:auth_api/app/modules/auth/views/widgets/login_options.dart';
 import 'package:auth_api/core/utils/app_styles.dart';
+import 'package:auth_api/core/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({
-    super.key,
-  });
+  const LoginForm({super.key});
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -44,8 +43,10 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     Get.put(BaseApiService());
     Get.put(UserService());
+
     return Form(
       key: formKey,
+      autovalidateMode: autovalidateMode, // Enable auto validation
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -55,10 +56,11 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 12.0),
-            child: CustomTextFeild(
+            child: CustomTextField(
               controller: emailController,
               fillColor: Colors.white,
               hintText: "Enter your email",
+              validator: Validator.emailValidator, // Use Validator class
             ),
           ),
           const SizedBox(
@@ -70,7 +72,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 12.0),
-            child: CustomTextFeild(
+            child: CustomTextField(
               controller: passwordController,
               fillColor: Colors.white,
               hintText: "***********",
@@ -85,6 +87,7 @@ class _LoginFormState extends State<LoginForm> {
                     : const Icon(Icons.visibility),
               ),
               isobsecure: isobsecure,
+              validator: Validator.passwordValidator, // Use Validator class
             ),
           ),
           const SizedBox(
